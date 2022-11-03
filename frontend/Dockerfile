@@ -1,22 +1,19 @@
-# 1. For build React app
-FROM node:lts AS development
+FROM node:17-alpine
 
 # Set working directory
 WORKDIR /app
 
-# 
-COPY package.json /app/package.json
+# Copy package.json file to working directory
+COPY ./package.json /app/package.json
 
-# Same as npm install
-RUN npm i
-
+# copy other files/folders to working directory
 COPY . /app
 
-ENV I=true
-ENV PORT=3000
+# Same as npm install
+RUN npm install
 
-CMD [ "npm", "start" ]
+RUN npm start
+# expose port 3000
+EXPOSE 3000
 
-FROM development AS build
-
-RUN npm run build
+CMD [ "npm", "run", "build" ]
