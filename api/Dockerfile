@@ -13,5 +13,8 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 COPY ./api /app/api
 COPY ./manage.py /app/manage.py
 
+# Expose port 8000
+EXPOSE 8000
+
 # Run manage.py at container launch
 CMD ["python", "manage.py", "runserver"]
