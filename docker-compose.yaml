@@ -2,21 +2,16 @@ version: "3.8"
 services:
     
     api:
-        build: ./api
+        image: abdulbarri/hngi9-api
         container_name: api_c
         ports:
             - '8000:8000'
-        volumes:
-            - ./api:/app
     
     frontend:
-        build: ./frontend
+        image: abdulbarri/hngi9-frontend
         container_name: frontend_c
         ports:
             - '3000:3000'
-        volumes: 
-            - ./frontend:/app
-            - ./app/node_modules
     
 #     nginx:
 #         image: nginx:latest
