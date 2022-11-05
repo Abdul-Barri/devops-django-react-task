@@ -3,20 +3,15 @@ services:
     
     api:
         image: abdulbarri/hngi9-api
+        restart: always
         container_name: api_c
         ports:
             - '8000:8000'
     
     frontend:
         image: abdulbarri/hngi9-frontend
+        restart: always
         container_name: frontend_c
         ports:
             - '3000:3000'
-    
-#     nginx:
-#         image: nginx:latest
-#         ports:
-#             - 80:3000
-#         depends_on:
-#             - api
-#             - frontend
+   
